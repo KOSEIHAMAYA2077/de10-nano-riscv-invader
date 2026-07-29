@@ -1,0 +1,46 @@
+# Quartus-generated databases and reports
+/db/
+/incremental_db/
+/output_files/
+/*.qws
+/*.qdf
+/*.smsg
+/demo_batch/
+/pll/*_sim*/
+/pll/*_sim.f
+/pll/*.bsf
+/pll/*.sip
+/pll/*.spd
+
+# Local Codex working files
+/.codex-tmp/
+/.codex_tmp/
+/.agents/
+/.mcp.json
+
+# Simulation output
+/work/
+/*.vcd
+/*.wlf
+/*_tb.out
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local handoff, logs, and superseded presentation sources
+/CLAUDE_HANDOFF.md
+/EDIT_LOG.md
+/更新履歴*.md
+/実装方針.md
+/c5_pin_model_dump.txt
+/qmegawiz_errors_log.txt
+/*.pptx
+/*.png
+/*.svg
+/*.mmd
+/presentation_assets/
+/cpu_source/Untitled-1.mmd
+
+# Course-provided assembler (replaced by tools/assemble_rv32i.py).
+/tas.py
