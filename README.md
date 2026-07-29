@@ -71,8 +71,7 @@ DE10-Nano上の簡易RV32I CPUから、HDMI映像回路とゲーム用MMIOを制
 - 授業配布アセンブラに代わる
   [`tools/assemble_rv32i.py`](tools/assemble_rv32i.py)
 
-どちらもRISC-V ISAの命令形式に基づく公開用の新規実装で、
-元の教科書由来ソースは含めていません。
+どちらもRISC-V ISAの命令形式に基づく公開用の新規実装です。
 
 ### 公式デモ由来部分
 
@@ -100,7 +99,7 @@ DE10-Nano上の簡易RV32I CPUから、HDMI映像回路とゲーム用MMIOを制
 
 成果発表資料では、授業で使用した `triscv` を拡張した構成として
 制作内容を説明しています。一方、`triscv` のCPU実装は教科書の実装を
-ベースとしているため、そのままGitHubへ掲載していません。
+ベースとしているため、権利の関係上、今回GitHubで公開するにあたってCPU部分も自作しました。
 
 GitHubで成果物を公開するにあたり、資料内の `triscv` は公開可能な別の
 CPUコアへ置き換えました。現在の公開ソースでは、RISC-V ISA仕様から
@@ -109,7 +108,7 @@ CPUコアへ置き換えました。現在の公開ソースでは、RISC-V ISA�
 ゲームプログラムの構成は変更せず利用できます。
 
 また、授業配布のアセンブラは含めず、同じ `memfile.dat` を生成できる
-プロジェクト固有のアセンブラへ置き換えています。
+アセンブラへ置き換えています。
 
 ## ファームウェアの生成
 
@@ -123,7 +122,7 @@ python tools/assemble_rv32i.py memfile.s
 
 ## FPGAプロジェクトについて
 
-本制作はTerasicのDE10-Nano HDMI公式リファレンスデザインを土台として
+本制作はTerasicのDE10-Nano HDMI公式デモを土台として
 開発しました。公式デモ由来ファイルを含め、Quartusプロジェクト一式を
 収録しています。各ファイルに記載されたTerasic／Alteraの著作権表示と
 利用条件は変更せず保持しています。
@@ -131,16 +130,6 @@ python tools/assemble_rv32i.py memfile.s
 制作および実機動作にはDE10-NanoとQuartus Prime Lite Edition 24.x
 （無償版）を使用しました。再構築方法は
 [BUILDING.md](docs/BUILDING.md)を参照してください。
-
-## 確認結果
-
-- RV32Iコアの命令実行テスト: PASS
-- ゲームSoC起動シミュレーション: PASS
-  - フレームバッファ初期化: 57,600書込み
-  - 自機・敵グリッドのMMIO初期化を確認
-- 新アセンブラの出力: 従来の `memfile.dat` とSHA-256一致
-- Quartus Analysis & Synthesis（公開整理時は25.1stdで再確認）: 0 errors
-- フル配置配線: この作業時は未完了
 
 ## 権利表示
 
