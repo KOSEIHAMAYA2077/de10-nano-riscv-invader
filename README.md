@@ -8,6 +8,13 @@ DE10-Nano上の簡易RV32I CPUから、HDMI映像回路とゲーム用MMIOを制
 
 ![システム全体構成](docs/images/system-overview.png)
 
+## 使用環境
+
+- FPGAボード: Terasic DE10-Nano
+- 開発ツール: Quartus Prime Lite Edition 24.x（無償版）
+- 映像出力: DE10-Nano HDMI公式リファレンスデザイン
+- ファームウェア生成: Python 3
+
 ## 実装した内容
 
 - RV32I CPU上で動作するゲームプログラム
@@ -66,7 +73,8 @@ python tools/assemble_rv32i.py memfile.s
 収録しています。各ファイルに記載されたTerasic／Alteraの著作権表示と
 利用条件は変更せず保持しています。
 
-Quartus Prime 25.1stdでの再構築方法は
+制作および実機動作にはDE10-NanoとQuartus Prime Lite Edition 24.x
+（無償版）を使用しました。再構築方法は
 [BUILDING.md](docs/BUILDING.md)を参照してください。
 
 ## 確認結果
@@ -76,7 +84,7 @@ Quartus Prime 25.1stdでの再構築方法は
   - フレームバッファ初期化: 57,600書込み
   - 自機・敵グリッドのMMIO初期化を確認
 - 新アセンブラの出力: 従来の `memfile.dat` とSHA-256一致
-- Quartus Analysis & Synthesis: 0 errors
+- Quartus Analysis & Synthesis（公開整理時は25.1stdで再確認）: 0 errors
 - フル配置配線: この作業時は未完了
 
 ## 権利表示

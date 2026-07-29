@@ -3,7 +3,7 @@
 ## 必要な環境
 
 - Terasic DE10-Nano
-- Quartus Prime Lite 25.1std
+- Quartus Prime Lite Edition 24.x（無償版）
 - Python 3
 
 ## 手順
