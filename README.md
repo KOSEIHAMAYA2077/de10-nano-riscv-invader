@@ -30,6 +30,57 @@ DE10-Nano上の簡易RV32I CPUから、HDMI映像回路とゲーム用MMIOを制
 
 ![敵スプライトの構成](docs/images/sprite-design.png)
 
+## 制作範囲
+
+### 本制作で本人が設計・実装した部分
+
+- **ゲームプログラム**
+  - [`memfile.s`](memfile.s)
+  - KEY入力、自機・弾・敵の座標更新、当たり判定
+  - 敵55体の生存管理、敵弾、スコア計算
+- **CPU側のゲームSoC／MMIO**
+  - [`cpu_source/top.v`](cpu_source/top.v)
+  - フレームバッファ、KEY、スプライト、敵、スコア、性能測定の
+    メモリマップとレジスタ制御
+  - [`cpu_source/perf_counter.v`](cpu_source/perf_counter.v)
+  - [`cpu_source/fb_addr_decoder.v`](cpu_source/fb_addr_decoder.v)
+- **フレームバッファと拡大表示**
+  - [`vpg_source/framebuffer_320x180.v`](vpg_source/framebuffer_320x180.v)
+  - [`vpg_source/framebuffer_reader_6x.v`](vpg_source/framebuffer_reader_6x.v)
+- **ゲーム画面のスプライト回路**
+  - [`vpg_source/sprite_overlay_rect.v`](vpg_source/sprite_overlay_rect.v)
+  - [`vpg_source/sprite_overlay_bullet.v`](vpg_source/sprite_overlay_bullet.v)
+  - [`vpg_source/sprite_overlay_enemy.v`](vpg_source/sprite_overlay_enemy.v)
+  - [`vpg_source/sprite_overlay_score.v`](vpg_source/sprite_overlay_score.v)
+- **公式映像回路との統合**
+  - Terasic公式デモを土台とした [`vpg_source/vpg.v`](vpg_source/vpg.v)
+    へ、CPU状態のクロックドメイン同期、スプライト合成、
+    フレームバッファ接続を追加
+  - Quartusプロジェクトへ制作モジュールを登録し、DE10-Nanoの
+    HDMI出力へ接続
+- **成果発表資料、構成図、実機動画**
+
+### GitHub公開時に新規作成・置換した部分
+
+- 教科書ベースの `triscv` に代わる
+  [`cpu_source/riscv.v`](cpu_source/riscv.v)
+- 授業配布アセンブラに代わる
+  [`tools/assemble_rv32i.py`](tools/assemble_rv32i.py)
+
+どちらもRISC-V ISAの命令形式に基づく公開用の新規実装で、
+元の教科書由来ソースは含めていません。
+
+### 公式デモ由来部分
+
+- DE10-Nanoのボードトップ、ピン設定
+- HDMI I2C設定、音声インターフェース
+- VGAタイミング生成回路
+- PLLおよびQuartus生成IP
+- `vpg.v`の元となったTerasic映像デモ
+
+これらのファイルでは、元のTerasic／Alteraの著作権表示と利用条件を
+保持しています。
+
 ## 成果物
 
 - [成果発表資料（PDF・公開版）](docs/presentation/成果発表資料_公開版.pdf)
