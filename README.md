@@ -25,17 +25,27 @@ DE10-Nano上の簡易RV32I CPUから、HDMI映像回路とゲーム用MMIOを制
 
 ## 成果物
 
-- [成果発表資料（PDF）](docs/presentation/成果発表資料.pdf)
-- [成果発表資料（PowerPoint）](docs/presentation/成果発表資料.pptx)
+- [成果発表資料（PDF・公開版）](docs/presentation/成果発表資料_公開版.pdf)
+- [成果発表資料（PowerPoint・実機動画埋込み版）](docs/presentation/成果発表資料_公開版.pptx)
+- [実機動作動画（MP4）](docs/video/実機動作.mp4)
 - [CPU・ゲームSoC](cpu_source/)
 - [映像・スプライト回路](vpg_source/)
 - [ゲームプログラム](memfile.s)
 - [RV32Iアセンブラ](tools/assemble_rv32i.py)
 - [MMIO一覧](docs/images/mmio-map.png)
 
-発表資料に登場する `triscv` は制作時に使用していたCPU構成の名称です。
-公開ソースでは、教科書由来のRTLを含めず、RISC-V ISAの命令形式から
-書き起こした[新規RV32Iコア](cpu_source/riscv.v)へ置き換えています。
+## GitHub公開時のCPU置換について
+
+成果発表資料では、授業で使用した `triscv` を拡張した構成として
+制作内容を説明しています。一方、`triscv` のCPU実装は教科書の実装を
+ベースとしているため、そのままGitHubへ掲載していません。
+
+GitHubで成果物を公開するにあたり、資料内の `triscv` は公開可能な別の
+CPUコアへ置き換えました。現在の公開ソースでは、RISC-V ISA仕様から
+新規作成した[RV32Iコア](cpu_source/riscv.v)を使用しています。
+ゲーム側とのインターフェースを維持しているため、映像回路、MMIO、
+ゲームプログラムの構成は変更せず利用できます。
+
 また、授業配布のアセンブラは含めず、同じ `memfile.dat` を生成できる
 プロジェクト固有のアセンブラへ置き換えています。
 
