@@ -62,6 +62,9 @@ Quartus Prime 25.1stdでの再構築方法は
 ## 確認結果
 
 - RV32Iコアの命令実行テスト: PASS
+- ゲームSoC起動シミュレーション: PASS
+  - フレームバッファ初期化: 57,600書込み
+  - 自機・敵グリッドのMMIO初期化を確認
 - 新アセンブラの出力: 従来の `memfile.dat` とSHA-256一致
 - Quartus Analysis & Synthesis: 0 errors
 - フル配置配線: この作業時は未完了
