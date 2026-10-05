@@ -1,4 +1,5 @@
 # FPGA上の簡易RISC-V CPUを用いたインベーダー風ゲーム
+<img width="2784" height="1664" alt="image" src="https://github.com/user-attachments/assets/e5f0ea7c-ba5b-4130-a898-05bcf34c98c7" />
 
 DE10-Nano上の簡易RV32I CPUから、HDMI映像回路とゲーム用MMIOを制御する
 インベーダー風ゲームの制作物です。320×180のフレームバッファを
